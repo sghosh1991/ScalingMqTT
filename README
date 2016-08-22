@@ -1,0 +1,44 @@
+===========================================================
+Specsense - A distributed crowdsourced sensor data paltform
+===========================================================
+
+This is a distributed crowdsourcing platform which can be used to collect data from a large number of distributed clients. The system is powered by Mqtt Brokers as a pubsub system. To handle the continous flow of messages from a huge and potentially unknowns number of simultaneous cients, we use Apache Kafka. The use of Kafka makes our platform both scalabale and highly fault tolerant. However we cannot simple plug and play Kafka and Mqtt as these are two varying technologies with different pub-sub semantics. So we write a thin client using the ecclipse paho mqtt clinet and the kafka_python clinet. The hybrid thin client acts as a glue between the mqtt broker and kafka cluster. The following are the steps to set up the system:
+
+Installation and setup:
+
+To set up the system for experiments we need the following tools on our machine:
+
+1) Mqtt cliet : paho python 2.7
+2) Kafka : Apache 
+3) Zookeeper : Apache
+4) HiveMq : A Mqtt Broker
+5) HAProxy : A Tcp load balancer
+
+
+After downloading them follow the steps below to get started.
+
+Steps to Follow:
+
+1. Set up HAProxy : Instructions included in the *.setup files in each Arch*/conf directory
+2. Set up kafka: Instructions included in the kafkaServer.cfg files in each Arch*/conf directory
+3. Set up mqtt broker(s): Instructions included in the kafkaServer.cfg files in each Arch*/conf directory
+4. Start the appropriate ArchXEntrypoint X = {1,2,3} file to get started.
+5. You can see the results for latency/message loss on the console for every archirecture.
+
+
+References:
+
+1) Scaling Mqtt , Tim Kellog 
+2) Medium io , Leylan Blog
+3) Hivemq clustering , HiveMq Blog 
+4) Apache kafka, Apache Kafka Website
+5) HAproxy, HaProxy website
+6) Mqtt , Mqtt.org
+7) Mqtt Essentials Hive Mqtt
+8) Digital ocean setting up HAProxy
+
+
+Documentation:
+
+The API/documentaion for the project can be found inside the html directory. Start with the index.html file.
+
